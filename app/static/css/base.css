@@ -1,0 +1,30 @@
+/* Reset de base et styles généraux */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+/* En-tête */
+
+
+
+
+/* Contenu principal */
+
+
+
+/* Pied de page */
+
+
+
+body {
+    /* ... styles existants ... */
+    transition: background-color 0.3s ease;  /* Pour une transition en douceur */
+}
+
+.logged-in {
+    background-color: #80ED99;
+}

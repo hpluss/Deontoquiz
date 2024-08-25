@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}Question du Quiz{% endblock %}
+
+{% block content %}
+<section class="mx-auto text-center my-5">
+    <div class="container">
+        <h1 class="hero-title mb-3">Question du Quiz</h1>
+        <p class="hero-subtitle mb-1">Testez vos connaissances en comptabilité</p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h5 class="card-title">Question {{ current_index + 1 }} sur {{ total_questions }}</h5>
+                            <div class="progress" style="width: 50%;">
+                                <div class="progress-bar bg-dark" role="progressbar" style="width: {{ (current_index + 1) / total_questions * 100 }}%" aria-valuenow="{{ current_index + 1 }}" aria-valuemin="0" aria-valuemax="{{ total_questions }}"></div>
+                            </div>
+                        </div>
+
+                        <h2 class="mb-4">{{ question.text }}</h2>
+
+                        <form method="post" action="{{ url_for('submit_answer') }}">
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="answer" id="answer_a" value="a" required>
+                                    <label class="form-check-label" for="answer_a">
+                                        {{ question.answer_a }}
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="answer" id="answer_b" value="b" required>
+                                    <label class="form-check-label" for="answer_b">
+                                        {{ question.answer_b }}
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="answer" id="answer_c" value="c" required>
+                                    <label class="form-check-label" for="answer_c">
+                                        {{ question.answer_c }}
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="answer" id="answer_d" value="d" required>
+                                    <label class="form-check-label" for="answer_d">
+                                        {{ question.answer_d }}
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-dark mt-3">Soumettre la réponse</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{% endblock %}
+
+{% block styles %}
+{{ super() }}
+{% endblock %}
